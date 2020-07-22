@@ -1,29 +1,8 @@
-var mysql = require("mysql");
+var connection = require("./connect");
 var inquirer = require("inquirer");
-var consoletable = require("console.table"); 
 var department = require("./db/department"); 
 var employee = require("./db/employee"); 
 var role = require("./db/role"); 
-
-var connection = mysql.createConnection({
-  host: "localhost",
-
-  // Your port; if not 3306
-  port: 3306,
-
-  // Your username
-  user: "root",
-
-  // Your password
-  password: "Queens0723",
-  database: "employee_db"
-});
-
-
-connection.connect(function(err) {
-    if (err) throw err;
-    console.log("Connection Established"); 
-  });
 
   function init() {
     inquirer
@@ -33,15 +12,13 @@ connection.connect(function(err) {
         message: "What would you like to do?",
         choices: [
           "View all employees",
-          "View all employees by department",
-          "View all employees by manager",
+          "View departments",
           "View all roles",
           "Add employee",
           "Add department",
           "Add role", 
-          "Remove employee",
           "Update employee role",
-          "Update employee manager"
+          "Quit"
         ]
       })
       .then(function(answer) {
@@ -50,19 +27,15 @@ connection.connect(function(err) {
         case "View all employees":
           employee.viewEmployees();
           break;
-  
-        case "View all employees by department":
-          department.viewDepartments();
-          break;
-  
-        case "View all employees by manager":
-          employee.viewManagers();
+          // need to fix this one
+        case "View departments":
+          department.viewDepartments()
           break;
 
         case "View all roles":
           role.viewRoles();
           break;
-
+          // need to fix how to assign an id that matches the employee's job title
         case "Add employee":
           employee.addEmployee();
           break;
@@ -83,11 +56,15 @@ connection.connect(function(err) {
           employee.updateEmployee();
           break;
 
-        case "Update employee manager":
-          employee.updateManager();
-          break;
+          case "Quit":
+            connection.end();
+            break;
         }
       });
   }
 
-  init()
+init()
+
+module.exports = {
+  init: init
+}

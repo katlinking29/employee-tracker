@@ -22,7 +22,7 @@ CREATE TABLE employee (
   first_name VARCHAR(30) NOT NULL,
   last_name VARCHAR(30) NOT NULL,
   role_id INT NOT NULL,
-  manager_id INT NOT NULL,
+  manager_id INT,
   PRIMARY KEY (id)
 );
 
@@ -59,4 +59,23 @@ VALUES ("Legal Team Lead", 250000.00, 4);
 INSERT INTO role (title, salary, department_id)
 VALUES ("Lawyer", 190000.00, 4);
 
+INSERT INTO employee (first_name, last_name, role_id,)
+VALUES ("Adam", "Anderson", 1); 
 
+INSERT INTO employee (first_name, last_name, role_id, manager_id)
+VALUES ("Betty", "Benson", 2, 1); 
+
+INSERT INTO employee (first_name, last_name, role_id,)
+VALUES ("Carl", "Clifton", 3); 
+
+INSERT INTO employee (first_name, last_name, role_id, manager_id)
+VALUES ("Debbie", "Denton", 4, 3); 
+
+INSERT INTO employee (first_name, last_name, role_id)
+VALUES ("Edward", "Ewok", 5); 
+
+INSERT INTO employee (first_name, last_name, role_id)
+VALUES ("Fran", "Fredricks", 6); 
+
+INSERT INTO employee (first_name, last_name, role_id, manager_id)
+VALUES ("Gus", "Georges", 7, 6); 

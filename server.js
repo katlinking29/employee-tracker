@@ -17,7 +17,6 @@ var role = require("./db/role");
           "Add employee",
           "Add department",
           "Add role", 
-          "Update employee role",
           "Quit"
         ]
       })
@@ -46,14 +45,6 @@ var role = require("./db/role");
 
         case "Add role":
           role.addRole();
-          break;
-
-        case "Remove employee":
-          employee.deleteEmployee();
-          break;
-  
-        case "Update employee role":
-          employee.updateEmployee();
           break;
 
           case "Quit":

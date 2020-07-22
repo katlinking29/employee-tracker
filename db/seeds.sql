@@ -59,13 +59,13 @@ VALUES ("Legal Team Lead", 250000.00, 4);
 INSERT INTO role (title, salary, department_id)
 VALUES ("Lawyer", 190000.00, 4);
 
-INSERT INTO employee (first_name, last_name, role_id,)
+INSERT INTO employee (first_name, last_name, role_id)
 VALUES ("Adam", "Anderson", 1); 
 
 INSERT INTO employee (first_name, last_name, role_id, manager_id)
 VALUES ("Betty", "Benson", 2, 1); 
 
-INSERT INTO employee (first_name, last_name, role_id,)
+INSERT INTO employee (first_name, last_name, role_id)
 VALUES ("Carl", "Clifton", 3); 
 
 INSERT INTO employee (first_name, last_name, role_id, manager_id)
